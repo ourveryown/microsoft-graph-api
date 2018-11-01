@@ -38,14 +38,13 @@ defmodule MicrosoftGraphApi.Accounts.AccountsTest do
                    "officeLocation" => office_location,
                    "preferredLanguage" => preferred_language,
                    "surname" => surname,
-                   "userPrincipleName" => user_principle_name,
-
+                   "userPrincipleName" => user_principle_name
                  }
                }
              } = json_response(post(%Plug.Conn{}, "/api", %{query: query}), 200)
 
       assert id == "1"
-      assert business_phones == ["123456789","123456789"]
+      assert business_phones == ["123456789", "123456789"]
       assert display_name == "name"
       assert given_name == "name"
       assert job_title == "job title"

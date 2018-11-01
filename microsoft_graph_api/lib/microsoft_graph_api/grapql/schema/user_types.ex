@@ -17,7 +17,7 @@ defmodule MicrosoftGraphApi.Schema.UserTypes do
     field(:office_location, :string)
     field(:preferred_language, :string)
     field(:surname, :string)
-    field(:user_principle_name, :string)
+    field(:user_principal_name, :string)
   end
 
   # =====================================
@@ -28,7 +28,8 @@ defmodule MicrosoftGraphApi.Schema.UserTypes do
   object :user_queries do
     @desc "Returns a user"
     field :user, :user do
-      resolve(&MicrosoftGraphApi.UserResolver.return_user/3)
+      arg(:azure_token, non_null(:string))
+      resolve(&MicrosoftGraphApi.UserResolver.return_user/2)
     end
   end
 
