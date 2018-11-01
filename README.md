@@ -1,10 +1,18 @@
-# microsoft-graph-api
-An Elixir library wrapping the Microsoft graph API
+# MicrosoftGraphApi
 
-# DO NOT USE
-There simply wasn't a library for Elixir that was able to talk to Microsofts graph API. This SHOULD NOT BE USED as it is very new and has next to no features. When it has enough features to do the basics I will indicate so. 
+To start your Phoenix server:
 
-This library is being used for an internal project but we thought it would be great to open source it, in around 4-6 months it should be ready to do the basics, but until then it will be strictly used internally.
+  * Install dependencies with `mix deps.get`
+  * Start Phoenix endpoint with `mix phx.server`
 
-#Contribute
-If you want to contribute feel free to contact me at ehassall@ourveryown.com.au.
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+
+Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+
+## Learn more
+
+  * Official website: http://www.phoenixframework.org/
+  * Guides: http://phoenixframework.org/docs/overview
+  * Docs: https://hexdocs.pm/phoenix
+  * Mailing list: http://groups.google.com/group/phoenix-talk
+  * Source: https://github.com/phoenixframework/phoenix
