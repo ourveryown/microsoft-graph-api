@@ -39,8 +39,6 @@ defmodule MicrosoftGraphApi.Mixfile do
       {:gettext, "~> 0.11"},
       {:plug_cowboy, "~> 1.0"},
       {:cowboy, "~> 1.0"},
-      {:absinthe, "~> 1.4"},
-      {:absinthe_plug, "~> 1.4"},
       {:httpoison, "~> 1.4"},
       {:poison, "~> 3.1"}
     ]

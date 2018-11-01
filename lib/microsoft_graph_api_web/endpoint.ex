@@ -30,10 +30,6 @@ defmodule MicrosoftGraphApiWeb.Endpoint do
     json_decoder: Poison
   )
 
-  plug(Absinthe.Plug,
-    schema: MicrosoftGraphApi.Schema
-  )
-
   plug(Plug.MethodOverride)
   plug(Plug.Head)
 
