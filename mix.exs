@@ -40,7 +40,8 @@ defmodule MicrosoftGraphApi.Mixfile do
       {:plug_cowboy, "~> 1.0"},
       {:cowboy, "~> 1.0"},
       {:httpoison, "~> 1.4"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 3.1"},
+      {:retry, "~> 0.11"}
     ]
   end
 end

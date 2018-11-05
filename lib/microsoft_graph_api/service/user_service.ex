@@ -2,18 +2,31 @@ defmodule MicrosoftGraphApi.Service.UserService do
   alias MicrosoftGraphApi.Models.User
   alias HTTPoison
   alias Poison
+  use Retry
 
   @doc """
   takes in an azure token as a string
   returns a User structure that matches a profile return response
   """
   def return_user(azure_token) do
-    response =
+    response = retry with: exponential_backoff() |> randomize |> cap(1_000) |> expiry(5_000) do
       HTTPoison.get!("https://graph.microsoft.com/v1.0/me", [
         {"Authorization", "Bearer #{azure_token}"}
       ])
+    after
+      response -> response
+    else
+      _error -> {:error, "timeout"}
+    end
 
     transform_to_user(response)
+  end
+
+  @doc """
+  Returns error for 401 status code = unauthorized access
+  """
+  def transform_to_user(%{status_code: status_code}) when status_code == 401 do
+    {:error, "Not authorized: #{status_code}"}
   end
 
   @doc """
