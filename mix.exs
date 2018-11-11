@@ -41,7 +41,9 @@ defmodule MicrosoftGraphApi.Mixfile do
       {:cowboy, "~> 1.0"},
       {:httpoison, "~> 1.4"},
       {:poison, "~> 3.1"},
-      {:retry, "~> 0.11"}
+      {:retry, "~> 0.11"},
+      {:bypass, "~> 0.8", only: :test},
+      {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false}
     ]
   end
 end

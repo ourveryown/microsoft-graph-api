@@ -4,13 +4,21 @@ defmodule MicrosoftGraphApi.Service.UserService do
   alias Poison
   use Retry
 
+  @graph_api_url "https://graph.microsoft.com/v1.0/"
+
   @doc """
   takes in an azure token as a string
   returns a User structure that matches a profile return response
   """
   def return_user(azure_token) do
-    response = retry with: exponential_backoff() |> randomize |> cap(1_000) |> expiry(5_000) do
-      HTTPoison.get!("https://graph.microsoft.com/v1.0/me", [
+    azure_token
+    |> call_graph_api()
+    |> transform_to_user()
+  end
+
+  def call_graph_api(azure_token, url \\ @graph_api_url) do
+    retry with: exponential_backoff() |> randomize |> cap(1_000) |> expiry(5_000) do
+      HTTPoison.get("#{url}me", [
         {"Authorization", "Bearer #{azure_token}"}
       ])
     after
@@ -18,8 +26,6 @@ defmodule MicrosoftGraphApi.Service.UserService do
     else
       _error -> {:error, "timeout"}
     end
-
-    transform_to_user(response)
   end
 
   @doc """
