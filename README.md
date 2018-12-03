@@ -1,5 +1,6 @@
 # microsoft-graph-api
 [![Build Status](https://travis-ci.com/Errol-Hassall-OVO/microsoft-graph-api.svg?branch=master)](https://travis-ci.com/Errol-Hassall-OVO/microsoft-graph-api)
+[![Coverage Status](https://coveralls.io/repos/github/Errol-Hassall-OVO/microsoft-graph-api/badge.svg?branch=master)](https://coveralls.io/github/Errol-Hassall-OVO/microsoft-graph-api?branch=master)
 
 An Elixir library wrapping the Microsoft graph API
 # DO NOT USE
