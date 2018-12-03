@@ -6,6 +6,7 @@ defmodule MicrosoftGraphApi.Mixfile do
       app: :microsoft_graph_api,
       version: "0.0.1",
       elixir: "~> 1.7",
+      test_coverage: [tool: ExCoveralls],
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -43,7 +44,8 @@ defmodule MicrosoftGraphApi.Mixfile do
       {:poison, "~> 3.1"},
       {:retry, "~> 0.11"},
       {:bypass, "~> 0.8", only: :test},
-      {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false}
+      {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 end
